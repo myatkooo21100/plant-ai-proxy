@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   const API_KEY = process.env.GEMINI_API_KEY; // Dashboard မှာ ထည့်ထားတဲ့ Key ကို ယူမယ်
-  const googleUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+  const googleUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
   try {
     const response = await fetch(googleUrl, {
@@ -30,3 +30,4 @@ export default async function handler(req, res) {
     res.status(500).json({ status: "proxy_error", message: error.message });
   }
 }
+
