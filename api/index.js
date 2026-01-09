@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   
-  const API_KEY = "AIzaSyDlDf_q7LtdCgL2cZcCBLWwhKfKommodqo";
+  const API_KEY = process.env.GEMINI_API_KEY;
   const googleUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
   try {
@@ -29,3 +29,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
